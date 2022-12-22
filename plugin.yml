@@ -1,0 +1,5 @@
+name: Sponges
+author: FiraAja
+version: 1.0.0
+main: FiraAja\Sponges\Main
+api: 4.0.0
