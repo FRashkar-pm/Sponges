@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace FiraAja\Sponges\Tasks;
 
 use pocketmine\block\BlockFactory;
+use pocketmine\block\Block;
 use pocketmine\block\VanillaBlocks;
 use pocketmine\scheduler\Task;
 use pocketmine\world\particle\BlockBreakParticle;
