@@ -9,15 +9,22 @@ use pocketmine\block\VanillaBlocks;
 use pocketmine\scheduler\Task;
 use pocketmine\world\particle\BlockBreakParticle;
 
-class setBlockTask extends Task{
+use pocketmine\world\Position;
+use pocketmine\world\World;
 
-    public function __construct($that, $level, $vector, $block, $firstP, $secondP){
-        $this->plugin = $that;
-        $this->level = $level;
+use pocketmine\math\Vector3;
+
+
+class setBlockTask extends Task{
+    
+    private Main $plugin;
+
+    public function __construct(Main $plugin, World $world, Vector3 $vector, Block $block, Position $position){
+        $this->plugin = $plugin;
+        $this->world = $world;
         $this->vector = $vector;
         $this->block = $block;
-        $this->fP = $firstP;
-        $this->sP = $secondP;
+        $this->position = $position
     }
 
     public function getPlugin(){
@@ -25,7 +32,7 @@ class setBlockTask extends Task{
     }
 
     public function onRun(): void {
-        $this->level->addParticle($this->vector, new BlockBreakParticle(BlockFactory::getInstance()->get(VanillaBlocks::STONE()->getId(),0)));
-        $this->level->setBlock($this->vector, $this->block, $this->fP, $this->sP);
+        $this->getWorld->addParticle($this->position->add(0.5, 0.5, 0.5), new BlockBreakParticle(VanillaBlocks::STONE()));
+        $this->getWorld->setBlock($this->vector, $this->block, $this->position);
     }
 }
