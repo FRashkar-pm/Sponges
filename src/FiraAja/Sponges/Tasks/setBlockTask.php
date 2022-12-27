@@ -25,7 +25,7 @@ class setBlockTask extends Task{
         $this->world = $world;
         $this->vector = $vector;
         $this->block = $block;
-        $this->position = $position
+        $this->position = $position;
     }
 
     public function getPlugin(): Plugin{
