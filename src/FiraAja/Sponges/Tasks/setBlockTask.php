@@ -27,7 +27,7 @@ class setBlockTask extends Task{
         $this->position = $position
     }
 
-    public function getPlugin(){
+    public function getPlugin(): Plugin{
         return $this->plugin;
     }
 
